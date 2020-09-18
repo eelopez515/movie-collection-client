@@ -1,6 +1,7 @@
 'use strict'
 
-const events = require('./events')
+const authEvents = require('./auth/events')
+const movieEvents = require('./movie/events')
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
@@ -8,17 +9,11 @@ const events = require('./events')
 // require('./example')
 
 $(() => {
-  // your JS code goes here
-  $('#sign-up-form').hide()
-  $('#sign-in-form').hide()
-  $('#change-password-form').hide()
-  $('#sign-up-button').on('click', () => {
-    $('#sign-up-form').show()
-  })
-  $('#sign-in-button').on('click', () => {
-    $('#sign-in-form').show()
-  })
-  $('#change-password-button').on('click', () => {
-    $('#change-password-form').show()
-  })
+  $('#add-movie-button').on('click', () => { $('#message').empty() })
+  $('#sign-up-form').on('submit', authEvents.onSignUp)
+  $('#sign-in-form').on('submit', authEvents.onSignIn)
+  $('#change-password-form').on('submit', authEvents.onChangePassword)
+  $('#sign-out-button').on('click', authEvents.onSignOut)
+  $('#add-movie-form').on('submit', movieEvents.onAddMovie)
+  $('#show-movie-button').on('click', movieEvents.onShowMovies)
 })

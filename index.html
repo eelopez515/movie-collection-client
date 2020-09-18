@@ -1,62 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Movie Collection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <!-- <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <!-- <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script> -->
-    </head>
-    <body>
-      <h1>Movies Collection</h1>
+</head>
 
-      <section id="authentication">
-        <button id='sign-up-button' class='authentication-button'>Sign Up</button>
-          <div id='sign-up-form'>
-            <!-- <label for='email-sign-up'><strong>Email:</strong></label> -->
-            <input type='email' id='email-sign-up' name='credentials[email]' placeholder='Email'>
-            <!-- <label for='sign-up-password'><strong>Password:</strong></label> -->
-            <input type='password' id='password-sign-up' name='credentials[password]' placeholder='Password'>
-            <!-- <label for='password-confirmation'><strong>Confirm Password:</strong></label> -->
-            <input type='password' id='password-confirmation' name='credentials[password_confirmation]' placeholder='Confim Password'>
-            <div>
-              <input type='submit' value='Submit' id='sign-up-submit'>
-            </div>
-          </div>
+<body>
+  <h1>(Person's Email) Collection</h1>
+  <p id='message'></p>
+  <section id="authentication">
+    <fieldset>
+      <button id='sign-up-button'>Sign Up</button>
+    <form id='sign-up-form'>
+      <input type='email' id='email-sign-up' name='credentials[email]' placeholder='Email'>
+      <input type='password' id='password-sign-up' name='credentials[password]' placeholder='Password'>
+      <input type='password' id='password-confirmation' name='credentials[password_confirmation]' placeholder='Confim Password'>
+      <input type="submit" value='Submit' id='sign-up-submit'>
+    </form>
+    </fieldset>
 
-      <button id='sign-in-button' class='authentication-button'>Sign In</button>
-        <div id='sign-in-form'>
-            <!-- <label for='email-sign-in'><strong>Email:</strong></label> -->
-            <input type='email' id='email-sign-in' name='credentials[email]' placeholder='Email'>
-            <!-- <label for='sign-in-password'><strong>Password:</strong></label> -->
-            <input type='password' id='password-sign-in' name='credentials[password]' placeholder='Password'>
-            <div>
-              <input type='submit' value='Submit' id='sign-in-submit'>
-            </div>
-        </div>
-      <button id='change-password-button' class='authentication-button'>Change Password</button>
-        <div id='change-password-form'>
-            <!-- <label for='current-password'><strong>Current Password:</strong></label> -->
-            <input type='password' id='old-password' name='passwords[old]' placeholder='Current Password'>
-            <!-- <label for='new-password'><strong>New Password:</strong></label> -->
-            <input type='password' id='new-password' name='passwords[new]' placeholder='New Password'>
-            <div>
-              <input type='submit' value='Submit' id='change-password-button'>
-            </div>
-        </div>
+    <fieldset>
+      <button id='sign-in-button'>Sign In</button>
+    <form id='sign-in-form'>
+        <input type='email' id='email-sign-in' name='credentials[email]' placeholder='Email'>
+        <input type='password' id='password-sign-in' name='credentials[password]' placeholder='Password'>
+        <input type='submit' value='Submit' id='sign-in-submit'>
+    </form>
+    </fieldset>
 
-        <div>
-          <input type='submit' value='Sign Out' id='sign-out-button' class='authentication-button'>
-        </div>
-      </section>
+    <fieldset>
+      <button id='change-password-button'>Change Password</button>
+    <form id='change-password-form'>
+        <input type='password' id='old-password' name='passwords[old]' placeholder='Current Password'>
+        <input type='password' id='new-password' name='passwords[new]' placeholder='New Password'>
+        <input type='submit' value='Submit' id='change-password-submit'>
+    </form>
+    </fieldset>
+    <div>
+      <input type='submit' id='sign-out-button' value='Sign Out'>
+    </div>
+  </section>
+  <h2>Movie Collection</h2>
+  <!-- <button id='add-movie'>Add Movie</button>
+  <button id='show-movie'>Show Movies</button>
+  <button id='update-movie'>Update Movie</button>
+  <button id='delete-movie'>Delete Movie</button> -->
+  <button id='add-movie-button'>Add Movie</button>
+  <fieldset>
+  <form id='add-movie-form'>
+    <input type='text' id='movie-title' name='movie[title]' placeholder='Title'>
+    <input type='text' id='movie-director' name='movie[director]' placeholder='Director(optional)'>
+    <input type='number' id='movie-releaseYear' name='movie[releaseYear]' placeholder='Release Year(optional)'>
+    <input type='text' id='movie-genre' name='movie[genre]' placeholder='Genre'>
+    <input type='number' id='movie-rating' name='movie[rating]' placeholder='Rating 1-5'>
+    <!-- <input type='text' id='movie-owner' name='movie[owner]' placeholder='Owner'> -->
+    <input type="submit" value='Submit' id='add-movie-submit'>
+  </form>
+  </fieldset>
+  <button id='show-movie-button'>Show Movies</button>
+  <fieldset>
+  <form id='show-movie-form'>
+    <!-- <input type="submit" value='Update' id='update-movie-submit'> -->
+  </form>
+  </fieldset>
+  <p id='collection-view'></p>
 
 
 
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </body>
+
+
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</body>
+
 </html>
