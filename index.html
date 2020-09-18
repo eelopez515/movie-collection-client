@@ -8,10 +8,55 @@
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
       <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <!-- <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script> -->
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Movies Collection</h1>
+
+      <section id="authentication">
+        <button id='sign-up-button' class='authentication-button'>Sign Up</button>
+          <div id='sign-up-form'>
+            <!-- <label for='email-sign-up'><strong>Email:</strong></label> -->
+            <input type='email' id='email-sign-up' name='credentials[email]' placeholder='Email'>
+            <!-- <label for='sign-up-password'><strong>Password:</strong></label> -->
+            <input type='password' id='password-sign-up' name='credentials[password]' placeholder='Password'>
+            <!-- <label for='password-confirmation'><strong>Confirm Password:</strong></label> -->
+            <input type='password' id='password-confirmation' name='credentials[password_confirmation]' placeholder='Confim Password'>
+            <div>
+              <input type='submit' value='Submit' id='sign-up-submit'>
+            </div>
+          </div>
+
+      <button id='sign-in-button' class='authentication-button'>Sign In</button>
+        <div id='sign-in-form'>
+            <!-- <label for='email-sign-in'><strong>Email:</strong></label> -->
+            <input type='email' id='email-sign-in' name='credentials[email]' placeholder='Email'>
+            <!-- <label for='sign-in-password'><strong>Password:</strong></label> -->
+            <input type='password' id='password-sign-in' name='credentials[password]' placeholder='Password'>
+            <div>
+              <input type='submit' value='Submit' id='sign-in-submit'>
+            </div>
+        </div>
+      <button id='change-password-button' class='authentication-button'>Change Password</button>
+        <div id='change-password-form'>
+            <!-- <label for='current-password'><strong>Current Password:</strong></label> -->
+            <input type='password' id='old-password' name='passwords[old]' placeholder='Current Password'>
+            <!-- <label for='new-password'><strong>New Password:</strong></label> -->
+            <input type='password' id='new-password' name='passwords[new]' placeholder='New Password'>
+            <div>
+              <input type='submit' value='Submit' id='change-password-button'>
+            </div>
+        </div>
+
+        <div>
+          <input type='submit' value='Sign Out' id='sign-out-button' class='authentication-button'>
+        </div>
+      </section>
+
+
+
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </body>
 </html>
