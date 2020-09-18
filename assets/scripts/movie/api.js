@@ -18,7 +18,7 @@ const showMovies = function (movie) {
     url: config.apiUrl + '/movies',
     method: 'GET',
     headers: {
-      Authorization: 'Bearer ' + store.movie.owner
+      Authorization: 'Bearer ' + store.user.token
     },
     data: {}
   })

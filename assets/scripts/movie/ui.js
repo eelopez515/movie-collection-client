@@ -10,12 +10,13 @@ const onAddMovieSuccess = function (response) {
 const onAddMovieFailure = function () {
   $('#message').text('Movie was not add, try again.')
 }
-const onShowMoviesSuccess = function (response) {
-  console.log(response)
+const onShowMoviesSuccess = function (movies) {
+  console.log(movies)
   $('#message').text('Here is your movie collection, ' + store.user.email)
-  $('#collection-view').text(response.movie)
+  $('#collection-view').text(movies)
 }
 const onShowMoviesFailure = function (response) {
+  console.log(response)
   $('#message').text('Unable to retrieve your collection, try again.')
 }
 module.exports = {
