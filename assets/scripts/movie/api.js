@@ -13,7 +13,7 @@ const addMovie = function (movie) {
     data: movie
   })
 }
-const showMovies = function (movie) {
+const showMovies = function () {
   return $.ajax({
     url: config.apiUrl + '/movies',
     method: 'GET',
