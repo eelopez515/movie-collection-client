@@ -3,7 +3,6 @@ const store = require('./../store')
 
 const onAddMovieSuccess = function (response) {
   store.movie = response.movie
-  console.log(store.movie)
   $('#message').text('Movie was added to your colection, ' + store.user.email)
   $('#add-movie-form').trigger('reset')
 }
@@ -11,12 +10,13 @@ const onAddMovieFailure = function () {
   $('#message').text('Movie was not add, try again.')
 }
 const onShowMoviesSuccess = function (response) {
-  console.log(response)
+  $('#collection-size').text('You have ' + response.movies.length + ' movie(s) in your collection')
+  $('#collection-view').text('')
   $('#message').text('Here is your movie collection, ' + store.user.email)
-  // const moviesString = JSON.stringify(movies)
-  // console.log(movies.movies[0].title)
-  // const title = movies.movies[0].title
+
   const collection = response.movies
+  console.log(collection)
+
   for (let i = 0; i < collection.length; i++) {
     const heading = document.createElement('h5')
     const title = document.createElement('p')
@@ -27,8 +27,12 @@ const onShowMoviesSuccess = function (response) {
     const reviews = document.createElement('p')
     const update = document.createElement('Button')
     const remove = document.createElement('Button')
+    update.setAttribute('id', 'update-button')
+    remove.setAttribute('id', 'delete-button')
+    update.value = collection[i]._id
+    remove.value = collection[i]._id
 
-    heading.textContent = 'Movie'
+    heading.textContent = `Movie ${i + 1}`
     title.textContent = 'Title: ' + collection[i].title
     director.textContent = 'Director: ' + collection[i].director
     releaseYear.textContent = 'Release Year: ' + collection[i].releaseYear
@@ -49,13 +53,31 @@ const onShowMoviesSuccess = function (response) {
     document.getElementById('collection-view').appendChild(remove)
   }
 }
-const onShowMoviesFailure = function (response) {
-  console.log(response)
+const onShowMoviesFailure = function () {
   $('#message').text('Unable to retrieve your collection, try again.')
+}
+const onUpdateMovieSuccess = function (movie) {
+  console.log(movie)
+  $('#message').text('Please update your movie, ' + store.user.email)
+
+}
+const onUpdateMovieFailure = function () {
+
+}
+const onDeleteMovieSuccess = function () {
+  $('#collection-view').text('')
+  $('#message').text('Movie was successfully deleted from your collection ' + store.user.email)
+}
+const onDeleteMovieFailure = function () {
+
 }
 module.exports = {
   onAddMovieSuccess: onAddMovieSuccess,
   onAddMovieFailure: onAddMovieFailure,
   onShowMoviesSuccess: onShowMoviesSuccess,
-  onShowMoviesFailure: onShowMoviesFailure
+  onShowMoviesFailure: onShowMoviesFailure,
+  onUpdateMovieSuccess: onUpdateMovieSuccess,
+  onUpdateMovieFailure: onUpdateMovieFailure,
+  onDeleteMovieSuccess: onDeleteMovieSuccess,
+  onDeleteMovieFailure: onDeleteMovieFailure
 }

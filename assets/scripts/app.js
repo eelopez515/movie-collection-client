@@ -16,4 +16,6 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#add-movie-form').on('submit', movieEvents.onAddMovie)
   $('#show-movie-button').on('click', movieEvents.onShowMovies)
+  $('#collection-view').on('click', '#update-button', movieEvents.onUpdateMovie)
+  $('#collection-view').on('click', '#delete-button', movieEvents.onDeleteMovie)
 })

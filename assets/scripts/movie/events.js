@@ -10,16 +10,37 @@ const onAddMovie = function (event) {
   const data = getFormFields(form)
   movieApi.addMovie(data)
     .then(movieUi.onAddMovieSuccess)
+    .then(onShowMovies())
     .catch(movieUi.onAddMovieFailure)
 }
 const onShowMovies = function () {
-  event.preventDefault()
+  // event.preventDefault()
   movieApi.showMovies()
     .then(movieUi.onShowMoviesSuccess)
     .catch(movieUi.onShowMoviesFailure)
 }
+const onUpdateMovie = function (event) {
+  event.preventDefault()
+  const selectMovie = event.target
+  const data = getFormFields(selectMovie)
+  const movieId = $(selectMovie).attr('value')
+  movieApi.updateMovie(data, movieId)
+    .then(movieUi.onUpdateMovieSuccess)
+    .catch(movieUi.onUpdateMovieFailure)
+}
+const onDeleteMovie = function (event) {
+  event.preventDefault()
+  const selectMovie = event.target
+  const movieId = $(selectMovie).attr('value')
+  movieApi.deleteMovie(movieId)
+    .then(movieUi.onDeleteMovieSuccess)
+    .then(onShowMovies)
+    .catch(movieUi.onDeleteMovieFailure)
+}
 
 module.exports = {
   onAddMovie: onAddMovie,
-  onShowMovies: onShowMovies
+  onShowMovies: onShowMovies,
+  onDeleteMovie: onDeleteMovie,
+  onUpdateMovie: onUpdateMovie
 }

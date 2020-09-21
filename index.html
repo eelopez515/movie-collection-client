@@ -53,10 +53,7 @@
     </div>
   </section>
   <h2>Movie Collection</h2>
-  <!-- <button id='add-movie'>Add Movie</button>
-  <button id='show-movie'>Show Movies</button>
-  <button id='update-movie'>Update Movie</button>
-  <button id='delete-movie'>Delete Movie</button> -->
+
   <button id='add-movie-button'>Add Movie</button>
   <fieldset>
   <form id='add-movie-form'>
@@ -64,18 +61,20 @@
     <input type='text' id='movie-director' name='movie[director]' placeholder='Director(optional)'>
     <input type='number' id='movie-releaseYear' name='movie[releaseYear]' placeholder='Release Year(optional)'>
     <input type='text' id='movie-genre' name='movie[genre]' placeholder='Genre'>
-    <input type='number' id='movie-rating' name='movie[rating]' placeholder='Rating 1-5' min='0' max='5'>
+    <input type='number' id='movie-rating' name='movie[rating]' placeholder='Rating' min='0' max='5'>
     <input type="submit" value='Submit' id='add-movie-submit'>
   </form>
   </fieldset>
   <button id='show-movie-button'>Show Movies</button>
+    <h6 id='collection-size'></h6>
   <fieldset>
   <form id='show-movie-form'>
-    <!-- <input type="submit" value='Update' id='update-movie-submit'> -->
+
   </form>
   </fieldset>
+  <div>
   <p id='collection-view'></p>
-
+  </div>
 
 
 
