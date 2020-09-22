@@ -14,70 +14,80 @@
 </head>
 
 <body>
+  <h1 id='welcome'>Cinephilia</h1>
   <h1 id='movie-collection-heading'></h1>
   <p id='message'></p>
   <section id="authentication">
+    <div id='before-sign-in'>
     <div id='sign-up'>
       <fieldset>
-        <button id='sign-up-button'>Sign Up</button>
+        <button id='sign-up-button' class='auth-button'>Sign Up</button>
         <form id='sign-up-form'>
           <input type='email' id='email-sign-up' name='credentials[email]' placeholder='Email'>
           <input type='password' id='password-sign-up' name='credentials[password]' placeholder='Password'>
           <input type='password' id='password-confirmation' name='credentials[password_confirmation]' placeholder='Confim Password'>
-          <input type="submit" value='Submit' id='sign-up-submit'>
+          <input type="submit" value='Submit' id='sign-up-submit'  class='submit-button'>
         </form>
       </fieldset>
     </div>
 
     <div id='sign-in'>
       <fieldset>
-        <button id='sign-in-button'>Sign In</button>
+        <button id='sign-in-button' class='auth-button'>Sign In</button>
         <form id='sign-in-form'>
           <input type='email' id='email-sign-in' name='credentials[email]' placeholder='Email'>
           <input type='password' id='password-sign-in' name='credentials[password]' placeholder='Password'>
-          <input type='submit' value='Submit' id='sign-in-submit'>
+          <input type='submit' value='Submit' id='sign-in-submit' class='submit-button'>
         </form>
       </fieldset>
     </div>
+    </div>
 
-
+    <div id='after-sign-in'>
     <div id='change-password'>
       <fieldset>
-        <button id='change-password-button'>Change Password</button>
+        <button id='change-password-button' class='auth-button'>Change Password</button>
         <form id='change-password-form'>
           <input type='password' id='old-password' name='passwords[old]' placeholder='Current Password'>
           <input type='password' id='new-password' name='passwords[new]' placeholder='New Password'>
-          <input type='submit' value='Submit' id='change-password-submit'>
+          <input type='submit' value='Submit' id='change-password-submit' class='submit-button'>
         </form>
       </fieldset>
     </div>
 
-
     <div>
-      <input type='submit' id='sign-out-button' value='Sign Out'>
+      <input type='submit' id='sign-out-button' class='auth-button' value='Sign Out'>
+    </div>
     </div>
   </section>
-  <h2>Movie Collection</h2>
+
+  <h2></h2>
+
+  <div id='show-movie'>
+    <button id='show-movie-button'>Show Movies</button>
+  </div>
+
+  <div id='collection-size'>
+      <h6 id='collection-view-size'></h6>
+  </div>
+
+  <div id="collection">
+    <p id='collection-view'></p>
+  </div>
 
 
-  <div>
+  <div id='add-movie'>
   <fieldset>
-    <button id='add-movie-button'>Add Movie</button>
+    <button id='add-movie-button' class='add-movie-button'>Add Movie</button>
     <form id='add-movie-form'>
-      <input type='text' id='movie-title' name='movie[title]' placeholder='Title'>
-      <input type='text' id='movie-director' name='movie[director]' placeholder='Director'>
-      <input type='number' id='movie-releaseYear' name='movie[releaseYear]' placeholder='Release Year' min='1880'>
-      <input type='text' id='movie-genre' name='movie[genre]' placeholder='Genre'>
-      <input type='number' id='movie-rating' name='movie[rating]' placeholder='Rating' min='0' max='5'>
-      <input type="submit" value='Submit' id='add-movie-submit'>
+      <input type='text' id='movie-title' name='movie[title]' placeholder='Title'/>
+      <input type='text' id='movie-director' name='movie[director]' placeholder='Director'/>
+      <input type='number' id='movie-releaseYear' name='movie[releaseYear]' placeholder='Release Year' min='1880'/>
+      <input type='text' id='movie-genre' name='movie[genre]' placeholder='Genre'/><br>
+      <input type='number' min="0" max="5" id='movie-rating' name='movie[rating]' placeholder='Rating'/><br>
+      <input type="submit" value='Submit' id='add-movie-submit' class='submit-button'/>
     </form>
   </fieldset>
-  </div>
-  <button id='show-movie-button'>Show Movies</button>
-  <h6 id='collection-size'></h6>
-
-  <div>
-    <p id='collection-view'></p>
   </div>
 
 

@@ -1,38 +1,153 @@
 @import '~bootstrap/scss/bootstrap';
-
-// #authentication {
-//   display: inline-flex;
-// }
-// .authentication-button {
-//   display: inline-flex;
-//   position: relative;
-//   margin-left: 30px;
-//   margin-right: 30px;
-//
-// }
-//
-#sign-up-form {
-  width: 30vh;
+body{
   display: flex;
-  flex-flow: column;
+  height: auto;
+  align-items: center;
+  flex-direction: column;
+  background-image: url('https://i.imgur.com/RwxfvzG.jpg');
+  // background-position: center;
+  background-size: cover;
 }
-#sign-in-form {
-  width: 30vh;
+h1{
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 3px 3px 8px rgb(0, 0, 0);
+  text-decoration: underline;
+}
+#message {
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 3px 3px 8px rgb(0, 0, 0);
+}
+#collection-view-size {
+  margin-top: 5px;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  text-shadow: 3px 3px 8px rgb(0, 0, 0);
+}
+#before-sign-in{
+  display: flex;
+  margin-left: 50px;
+}
+#sign-up {
+  width: 15vh;
+  flex-direction: column;
+}
+#sign-in {
+  width: 15vh;
+  flex-direction: column;
+}
+#after-sign-in{
+  display: flex;
+  margin-left: 30px;
+}
+#change-password {
+  width: 20vh;
   display: flex;
   flex-direction: column;
 }
-#change-password-form {
-  width: 30vh;
+.auth-button{
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+.submit-button{
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+#add-movie{
+  width: 15vh;
+  margin-right: 35px;
   display: flex;
   flex-direction: column;
 }
-#add-movie-form {
-  width: 30vh;
-  display: flex;
-  flex-direction: column;
+#add-movie-button {
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+  margin-left: 35px;
 }
-.movie-update{
-  width: 30vh;
+#show-movie-button{
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+#update-button{
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+#delete-button {
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+.cancel-button {
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+.save-button {
+  position: relative;
+  background-color: rgb(8, 162, 167);
+  border: 2px solid black;
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 15px;
+}
+#movie-rating{
+  width: 175px;
+}
+#show-movie{
+  display: flex;
+}
+#collection-view{
+  background-color:  rgb(180, 180, 180);
+  text-align: center;
+  width: 425px;
+  height: 400px;
+  overflow: scroll;
+  border: 2px solid black;
+}
+.movie-update {
+  width: 15vh;
+  margin-left: 5px;
   display: flex;
   flex-direction: column;
+  margin: 5px 0px 2px 129px
+}
+.collection-view-rating {
+  width: 124px;
+}
+p{
+  margin-top: 5px;
+  font-weight: bold;
+}
+h5{
+  text-decoration: underline;
 }

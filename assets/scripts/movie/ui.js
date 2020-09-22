@@ -5,17 +5,19 @@ const onAddMovieSuccess = function (response) {
   store.movie = response.movie
   $('#message').text('Movie was added to your colection, ' + store.user.email)
   $('#add-movie-form').trigger('reset')
+  $('#add-movie-form').on('submit', () => {
+    $('#add-movie-form').hide()
+  })
 }
 const onAddMovieFailure = function () {
   $('#message').text('Movie was not add, try again.')
 }
 const onShowMoviesSuccess = function (response) {
-  $('#collection-size').text('You have ' + response.movies.length + ' movie(s) in your collection')
+  $('#collection-view-size').text('You have ' + response.movies.length + ' movie(s) in your collection')
   $('#collection-view').text('')
   $('#message').text('Here is your movie collection, ' + store.user.email)
 
   const collection = response.movies
-
   for (let i = 0; i < collection.length; i++) {
     const heading = document.createElement('h5')
     const title = document.createElement('p')
@@ -29,12 +31,13 @@ const onShowMoviesSuccess = function (response) {
     update.setAttribute('id', 'update-button')
     remove.setAttribute('id', 'delete-button')
     remove.value = collection[i]._id
+    update.value = collection[i]._id
 
-    heading.textContent = `Movie ${i + 1}`
-    title.textContent = 'Title: ' + collection[i].title
-    director.textContent = 'Director: ' + collection[i].director
+    heading.textContent = `Movie #${i + 1}`
+    title.textContent = 'Title: ' + collection[i].title.toUpperCase()
+    director.textContent = 'Director: ' + collection[i].director.toUpperCase()
     releaseYear.textContent = 'Release Year: ' + collection[i].releaseYear
-    genre.textContent = 'Genre: ' + collection[i].genre
+    genre.textContent = 'Genre: ' + collection[i].genre.toUpperCase()
     rating.textContent = 'Rating: ' + collection[i].rating
     reviews.textContent = 'Review: ' + collection[i].reviews
     update.textContent = 'Update'
@@ -53,16 +56,23 @@ const onShowMoviesSuccess = function (response) {
       <form id="${collection[i]._id}" class='movie-update'>
           <input name='title' type="text" value='${collection[i].title}' placeholder='Title'/>
           <input name='director' type="text" value='${collection[i].director}' placeholder='Director'/>
-          <input name='release year' type='number' value='${collection[i].releaseYear}' placeholder='Release Year' min ='1880'/>
+          <input name='release year' type='text' value='${collection[i].releaseYear}' placeholder='Release Year'/>
           <input name='genre' type="text" value='${collection[i].genre}' placeholder='Genre'/>
-          <input name='rating' type="number" value='${collection[i].rating}' placeholder='Rating' min='0' max='5'/>
+          <input name='rating' type="number" class='collection-view-rating' value='${collection[i].rating}' placeholder='Rating' min='0' max='5'/>
           <input name='review' type="text" value='${collection[i].reviews}' placeholder='Review'/>
-        <button id='cancel-button'>Cancel</button>
-        <input id='save-button-form' type='submit' value='Save' class='save-buton'/>
+          <input  class='save-button' type='submit' value='Save'/>
+          <button class='cancel-button'>Cancel</button>
+
       </form>`)
   }
   $('.movie-update').hide()
 }
+$('#collection-view').on('click', '#update-button', (event) => {
+  const movieId = event.target.value
+  console.log('movieId is', movieId)
+  $('#' + movieId).show(300, 'linear')
+  $('#message').text('Please update your movie')
+})
 const onShowMoviesFailure = function () {
   $('#message').text('Unable to retrieve your collection, try again.')
 }
