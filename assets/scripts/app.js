@@ -19,15 +19,22 @@ $(() => {
   $('#change-password-form').hide()
   $('#sign-up-button').on('click', () => {
     $('#sign-up-form').toggle()
+    $('#sign-in-form').hide()
+    $('#change-password-form').hide()
   })
   $('#sign-in-button').on('click', () => {
     $('#sign-in-form').toggle()
+    $('#sign-up-form').hide()
+    $('#change-password-form').hide()
   })
   $('#change-password-button').on('click', () => {
     $('#change-password-form').toggle()
+    $('#add-movie-form').hide()
+    $('#collection-view').text('')
   })
   $('#add-movie-button').on('click', () => {
     $('#add-movie-form').toggle()
+    $('#change-password-form').hide()
   })
   $('#add-movie-button').on('click', () => { $('#message').empty() })
   $('#sign-up-form').on('submit', authEvents.onSignUp)

@@ -2,7 +2,7 @@
 const store = require('./../store')
 
 const onSignUpSuccess = function (response) {
-  $('#message').text('You have successfully signed up ' + response.user.email)
+  $('#message').text('You have successfully signed up as ' + response.user.email)
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').trigger('reset')
@@ -16,8 +16,12 @@ const onSignUpFailure = function () {
 }
 const onSignInSuccess = function (response) {
   store.user = response.user
-  console.log(store.user)
-  $('#message').text('You have successfully signed in ' + response.user.email)
+  let userEmail = response.user.email
+  userEmail = JSON.stringify(userEmail)
+  userEmail = userEmail.split('@')
+  console.log(userEmail)
+  $('#movie-collection-heading').text(`${userEmail[0].toUpperCase()}'s Movie Collection"`)
+  $('#message').text('You have successfully signed in as ' + response.user.email)
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').trigger('reset')
@@ -50,11 +54,16 @@ const onChangePasswordFailure = function () {
   $('#sign-out-form').trigger('reset')
 }
 const onSignOutSuccess = function (response) {
+  $('#movie-collection-heading').text('')
   $('#message').text('You have successfully signed out ' + store.user.email)
   $('#sign-out-form').trigger('reset')
   $('#change-password-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
+  $('#sign-up-button').show()
+  $('#sign-in-button').show()
+  $('#change-password-button').hide()
+  $('#sign-out-button').hide()
 }
 const onSignOutFailure = function () {
   $('#message').text('Failed to sign out, try again')
