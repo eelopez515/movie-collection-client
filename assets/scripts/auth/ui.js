@@ -70,6 +70,7 @@ const onSignOutSuccess = function (response) {
   $('#collection-view').hide()
   $('#collection-size').text('')
   $('#add-movie-form').hide()
+  $('#change-password-form').hide()
 }
 const onSignOutFailure = function () {
   $('#message').text('Failed to sign out, try again')
