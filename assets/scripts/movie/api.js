@@ -24,7 +24,6 @@ const showMovies = function () {
   })
 }
 const updateMovie = function (data, movieId) {
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/movies/' + `${movieId}`,
     method: 'PATCH',

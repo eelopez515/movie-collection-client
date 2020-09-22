@@ -6,6 +6,7 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').trigger('reset')
+  $('#sign-up-form').hide()
 }
 const onSignUpFailure = function () {
   $('#message').text('Sign up failed, please try again')
@@ -20,6 +21,13 @@ const onSignInSuccess = function (response) {
   $('#sign-up-form').trigger('reset')
   $('#sign-in-form').trigger('reset')
   $('#change-password-form').trigger('reset')
+  $('#sign-up-button').hide()
+  $('#sign-in-button').hide()
+  $('#sign-in-form').hide()
+  $('#change-password-button').show()
+  $('#add-movie-button').show()
+  $('#show-movie-button').show()
+  $('#sign-out-button').show()
 }
 const onSignInFailure = function () {
   $('#message').text('Sign up failed, please try again')

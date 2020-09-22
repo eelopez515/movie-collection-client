@@ -11,18 +11,28 @@
 //
 // }
 //
-// #sign-up-form {
-//   width: 30vh;
-//   display: flex;
-//   flex-flow: column;
-// }
-// #sign-in-form {
-//   width: 30vh;
-//   display: flex;
-//   flex-direction: column;
-// }
-// #change-password-form {
-//   width: 30vh;
-//   display: flex;
-//   flex-direction: column;
-// }
+#sign-up-form {
+  width: 30vh;
+  display: flex;
+  flex-flow: column;
+}
+#sign-in-form {
+  width: 30vh;
+  display: flex;
+  flex-direction: column;
+}
+#change-password-form {
+  width: 30vh;
+  display: flex;
+  flex-direction: column;
+}
+#add-movie-form {
+  width: 30vh;
+  display: flex;
+  flex-direction: column;
+}
+.movie-update{
+  width: 30vh;
+  display: flex;
+  flex-direction: column;
+}

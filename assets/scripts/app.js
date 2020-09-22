@@ -9,6 +9,26 @@ const movieEvents = require('./movie/events')
 // require('./example')
 
 $(() => {
+  $('#sign-up-form').hide()
+  $('#sign-in-form').hide()
+  $('#sign-out-button').hide()
+  $('#add-movie-form').hide()
+  $('#change-password-button').hide()
+  $('#add-movie-button').hide()
+  $('#show-movie-button').hide()
+  $('#change-password-form').hide()
+  $('#sign-up-button').on('click', () => {
+    $('#sign-up-form').toggle()
+  })
+  $('#sign-in-button').on('click', () => {
+    $('#sign-in-form').toggle()
+  })
+  $('#change-password-button').on('click', () => {
+    $('#change-password-form').toggle()
+  })
+  $('#add-movie-button').on('click', () => {
+    $('#add-movie-form').toggle()
+  })
   $('#add-movie-button').on('click', () => { $('#message').empty() })
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)
@@ -16,6 +36,11 @@ $(() => {
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#add-movie-form').on('submit', movieEvents.onAddMovie)
   $('#show-movie-button').on('click', movieEvents.onShowMovies)
-  $('#collection-view').on('click', '#update-button', movieEvents.onUpdateMovie)
+  $('#collection-view').on('submit', '.movie-update', movieEvents.onUpdateMovie)
   $('#collection-view').on('click', '#delete-button', movieEvents.onDeleteMovie)
+  $('#collection-view').on('click', '#update-button', () => {
+    $('.movie-update').show()
+    $('#message').text('Please update your movie')
+  })
+  $('#collection-view').on('click', '#cancel-button', () => { $('.movie-update').hide() })
 })

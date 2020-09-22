@@ -23,9 +23,10 @@ const onUpdateMovie = function (event) {
   event.preventDefault()
   const selectMovie = event.target
   const data = getFormFields(selectMovie)
-  const movieId = $(selectMovie).attr('value')
+  const movieId = $(selectMovie).attr('id')
   movieApi.updateMovie(data, movieId)
     .then(movieUi.onUpdateMovieSuccess)
+    .then(onShowMovies)
     .catch(movieUi.onUpdateMovieFailure)
 }
 const onDeleteMovie = function (event) {

@@ -15,7 +15,6 @@ const onShowMoviesSuccess = function (response) {
   $('#message').text('Here is your movie collection, ' + store.user.email)
 
   const collection = response.movies
-  console.log(collection)
 
   for (let i = 0; i < collection.length; i++) {
     const heading = document.createElement('h5')
@@ -29,7 +28,6 @@ const onShowMoviesSuccess = function (response) {
     const remove = document.createElement('Button')
     update.setAttribute('id', 'update-button')
     remove.setAttribute('id', 'delete-button')
-    update.value = collection[i]._id
     remove.value = collection[i]._id
 
     heading.textContent = `Movie ${i + 1}`
@@ -51,22 +49,31 @@ const onShowMoviesSuccess = function (response) {
     document.getElementById('collection-view').appendChild(reviews)
     document.getElementById('collection-view').appendChild(update)
     document.getElementById('collection-view').appendChild(remove)
+    $('#collection-view').append(`
+      <form id="${collection[i]._id}" class='movie-update'>
+          <input name='title' type="text" value='${collection[i].title}' placeholder='Title'/>
+          <input name='director' type="text" value='${collection[i].director}' placeholder='Director'/>
+          <input name='release year' type='number' value='${collection[i].releaseYear}' placeholder='Release Year' min ='1880'/>
+          <input name='genre' type="text" value='${collection[i].genre}' placeholder='Genre'/>
+          <input name='rating' type="number" value='${collection[i].rating}' placeholder='Rating' min='0' max='5'/>
+          <input name='review' type="text" value='${collection[i].reviews}' placeholder='Review'/>
+        <button id='cancel-button'>Cancel</button>
+        <input id='save-button-form' type='submit' value='Save' class='save-buton'/>
+      </form>`)
   }
+  $('.movie-update').hide()
 }
 const onShowMoviesFailure = function () {
   $('#message').text('Unable to retrieve your collection, try again.')
 }
-const onUpdateMovieSuccess = function (movie) {
-  console.log(movie)
-  $('#message').text('Please update your movie, ' + store.user.email)
-
+const onUpdateMovieSuccess = function (response) {
+  $('#message').text('Your movie has been updated')
 }
 const onUpdateMovieFailure = function () {
 
 }
-const onDeleteMovieSuccess = function () {
-  $('#collection-view').text('')
-  $('#message').text('Movie was successfully deleted from your collection ' + store.user.email)
+const onDeleteMovieSuccess = function (response) {
+  $('#message').html('Movie was successfully deleted from your collection ' + store.user.email)
 }
 const onDeleteMovieFailure = function () {
 
