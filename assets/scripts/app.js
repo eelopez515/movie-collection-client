@@ -41,6 +41,7 @@ $(() => {
   $('#add-movie-button').on('click', () => { $('#message').empty() })
   $('#add-movie-button').on('click', () => {
     $('#collection-view').show(300, 'linear')
+    $('#message').text('Please add a Movie.')
   })
   $('#sign-up-form').on('submit', authEvents.onSignUp)
   $('#sign-in-form').on('submit', authEvents.onSignIn)

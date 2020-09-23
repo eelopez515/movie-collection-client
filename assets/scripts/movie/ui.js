@@ -5,17 +5,17 @@ const onAddMovieSuccess = function (response) {
   store.movie = response.movie
   $('#message').text('Movie was added to your colection, ' + store.user.email)
   $('#add-movie-form').trigger('reset')
-  $('#add-movie-form').on('submit', () => {
-    $('#add-movie-form').hide()
-  })
+  $('#message-failure').text('')
+  $('#add-movie-form').hide()
 }
 const onAddMovieFailure = function () {
-  $('#message').text('Movie was not add, try again.')
+  $('#message').text('')
+  $('#message-failure').text('Movie was not added, try again.')
 }
 const onShowMoviesSuccess = function (response) {
   $('#collection-view-size').text('You have ' + response.movies.length + ' movie(s) in your collection')
   $('#collection-view').text('')
-  $('#message').text('Here is your movie collection, ' + store.user.email)
+  // $('#message').text('Here is your movie collection, ' + store.user.email)
 
   const collection = response.movies
   for (let i = 0; i < collection.length; i++) {
@@ -71,21 +71,27 @@ $('#collection-view').on('click', '#update-button', (event) => {
   const movieId = event.target.value
   $('#' + movieId).show(300, 'linear')
   $('#message').text('Please update your movie')
+  $('#message-failure').text('')
 })
 const onShowMoviesFailure = function () {
-  $('#message').text('Unable to retrieve your collection, try again.')
+  $('#message').text('')
+  $('#message-failure').text('Unable to retrieve your collection, try again.')
 }
 const onUpdateMovieSuccess = function (response) {
+  $('#message-failure').text('')
   $('#message').text('Your movie has been updated')
 }
 const onUpdateMovieFailure = function () {
-
+  $('#message').text('')
+  $('#message-failure').text('Your movie was not updated, try again')
 }
 const onDeleteMovieSuccess = function (response) {
-  $('#message').html('Movie was successfully deleted from your collection ' + store.user.email)
+  $('#message-failure').text('')
+  $('#message').html('You have successfully deleted a movie from your collection')
 }
 const onDeleteMovieFailure = function () {
-
+  $('#message').text('')
+  $('#message-failure').text('Your movie was not deleted, try again')
 }
 module.exports = {
   onAddMovieSuccess: onAddMovieSuccess,
