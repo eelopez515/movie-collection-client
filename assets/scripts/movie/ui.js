@@ -6,14 +6,15 @@ const onAddMovieSuccess = function (response) {
   $('#message').text('Movie was added to your colection, ' + store.user.email)
   $('#add-movie-form').trigger('reset')
   $('#message-failure').text('')
-  $('#add-movie-form').hide()
+  $('#add-movie-form').hide(300, 'linear')
 }
 const onAddMovieFailure = function () {
   $('#message').text('')
   $('#message-failure').text('Movie was not added, try again.')
 }
 const onShowMoviesSuccess = function (response) {
-  $('#collection-view-size').text('You have ' + response.movies.length + ' movie(s) in your collection')
+  store.movies = response.movies
+  $('#collection-view-size').text('You have ' + store.movies.length + ' movie(s) in your collection')
   $('#collection-view').text('')
   // $('#message').text('Here is your movie collection, ' + store.user.email)
 

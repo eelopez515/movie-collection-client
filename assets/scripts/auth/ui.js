@@ -71,6 +71,7 @@ const onSignOutSuccess = function (response) {
   $('#collection-size').text('')
   $('#add-movie-form').hide()
   $('#change-password-form').hide()
+  $('#message-failure').text('')
 }
 const onSignOutFailure = function () {
   $('#message').text('Failed to sign out, try again')
