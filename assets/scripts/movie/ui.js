@@ -69,7 +69,6 @@ const onShowMoviesSuccess = function (response) {
 }
 $('#collection-view').on('click', '#update-button', (event) => {
   const movieId = event.target.value
-  console.log('movieId is', movieId)
   $('#' + movieId).show(300, 'linear')
   $('#message').text('Please update your movie')
 })
